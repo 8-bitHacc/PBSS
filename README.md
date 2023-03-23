@@ -18,8 +18,8 @@ Download this [base APK](https://www.mediafire.com/file/f0xutijgrbq18i8/Project+
 
 
 ### Need help?
-Open an issue or contact me on **Discord**: 8-bit Hacc#1032
-Joke issues aren't allowed.
+- Open an issue or contact me on **Discord**: 8-bit Hacc#1032
+- Joke issues aren't allowed.
 
 ### Special thanks
 - [athemm](https://github.com/athemm) - for making the patcher.
