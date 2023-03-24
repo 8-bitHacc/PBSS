@@ -102,7 +102,7 @@ class BattleResult2Message(Writer):
             new_trophies = old_tr + lose_val
             self.player.brawlers_trophies[str(self.player.home_brawler)] = brawler_trophies + lose_val
             self.player.brawlers_high_trophies[str(self.player.home_brawler)] = brawler_high_trophies + lose_val
-            TrophiesResult = win_val
+            TrophiesResult = lose_val
             
             self.db.update_player_account(self.player.token, 'BrawlersTrophies', self.player.brawlers_trophies)
             self.db.update_player_account(self.player.token, 'BrawlersHighestTrophies', self.player.brawlers_high_trophies)
