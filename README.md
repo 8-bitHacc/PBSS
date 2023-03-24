@@ -14,7 +14,7 @@ In a terminal, type __`pip install -r requirements.txt`__ then __`python main.py
 
 ### Configuring the client app
 To connect to your server, a **patched client** is required. 
-Download this [base APK](https://www.mediafire.com/file/f0xutijgrbq18i8/Project+BSDS+V39_39.99.apk/file) and change the IP in `libfridacat.config.so`
+Download this [base APK](https://www.mediafire.com/file/4lqxq2phdswikv1/com.projectbsds.v3999-rev1.apk/file) and change the IP in `libfridacat.config.so`
 
 
 ### Need help?
