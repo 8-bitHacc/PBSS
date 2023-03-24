@@ -19,7 +19,7 @@ class Writer:
         self.writeVInt(0)
         self.writeVInt(data)
 
-    def writeArrayVint(self, data):
+    def writeIntList(self, data):
         self.writeVInt(len(data))
         for x in data:
             self.writeVInt(x)
