@@ -19,10 +19,10 @@ class LogicShopData:
 
     def encodeShopPacks(self):
         # Brawler Upgrade Cost
-        self.writeArrayVint([8, 40, 80, 145, 295, 485, 805, 1255])
+        self.writeIntList([8, 40, 80, 145, 295, 485, 805, 1255])
         # Gold
-        self.writeArrayVint(LogicShopData.gold_cost)
-        self.writeArrayVint(LogicShopData.gold_amount)
+        self.writeIntList(LogicShopData.gold_cost)
+        self.writeIntList(LogicShopData.gold_amount)
 
     def encodeShopResources(self):
         time_stamp = int(datetime.timestamp(datetime.now()))
