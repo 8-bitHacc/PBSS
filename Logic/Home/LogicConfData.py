@@ -9,9 +9,9 @@ class LogicConfData:
 
         LogicEventData.encode(self)
 
-        self.writeArrayVint([8, 20, 35, 75, 140, 290, 480, 800, 1250])  # Brawler Upgrade Cost
-        self.writeArrayVint([4, 20, 50, 140, 280])  # Shop Coins Price
-        self.writeArrayVint([4, 150, 400, 1200, 2600])  # Shop Coins Amount
+        self.writeIntList([8, 20, 35, 75, 140, 290, 480, 800, 1250])  # Brawler Upgrade Cost
+        self.writeIntList([4, 20, 50, 140, 280])  # Shop Coins Price
+        self.writeIntList([4, 150, 400, 1200, 2600])  # Shop Coins Amount
 
         self.writeBoolean(True)  # Show Offers Packs
 
