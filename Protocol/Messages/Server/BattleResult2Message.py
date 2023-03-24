@@ -91,12 +91,6 @@ class BattleResult2Message(Writer):
             self.db.update_player_account(self.player.token, 'Trophies', new_trophies)
 
             self.player.TrophiesAnimation = win_val
-            
-            old_res_brawl_box = self.player.resources[0]['Amount']
-            old_res_big_box = self.player.resources[2]['Amount']
-            self.player.resources[2]['Amount'] = old_res_big_box + 5
-            self.player.resources[0]['Amount'] = old_res_brawl_box + 50
-            self.db.update_player_account(self.player.token, "Resources", self.player.resources)
         
         else:
             new_trophies = old_tr + lose_val
