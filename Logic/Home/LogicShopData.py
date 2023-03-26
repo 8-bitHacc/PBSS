@@ -19,14 +19,14 @@ class LogicShopData:
 
     def encodeShopPacks(self):
         # Unknown
-        self.writeArrayVint([20, 35, 75, 140, 290, 480, 800, 1250])
-        self.writeArrayVint([1, 2, 3, 4, 5, 10, 15, 20])
+        self.writeIntList([20, 35, 75, 140, 290, 480, 800, 1250])
+        self.writeIntList([1, 2, 3, 4, 5, 10, 15, 20])
         # Tickets
-        self.writeArrayVint([10, 30, 80])
-        self.writeArrayVint([6, 20, 60])
+        self.writeIntList([10, 30, 80])
+        self.writeIntList([6, 20, 60])
         # Gold
-        self.writeArrayVint(LogicShopData.gold_cost)
-        self.writeArrayVint(LogicShopData.gold_amount)
+        self.writeIntList(LogicShopData.gold_cost)
+        self.writeIntList(LogicShopData.gold_amount)
 
     def encodeShopResources(self):
         time_stamp = int(datetime.timestamp(datetime.now()))
