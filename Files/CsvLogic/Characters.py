@@ -7,7 +7,7 @@ class Characters:
         reader = CsvReader()
         rowData = reader.readCsv('GameAssets/csv_logic/characters.csv')
         for row in rowData:
-            if row[23] == 'Hero' and row[1].lower() != 'true' and row[2].lower() != 'true' and row[0] != "MechaDudeBig":
+            if row[20] == 'Hero' and row[2].lower() != 'true' and row[1].lower() != 'true':
                 BrawlersID.append(rowData.index(row))
 
         return BrawlersID

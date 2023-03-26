@@ -6,7 +6,7 @@ class Cards:
         reader = CsvReader()
         rowData = reader.readCsv('GameAssets/csv_logic/cards.csv')
         for row in rowData:
-            if row[7] == '4' and row[4].lower() != "true" and row[5].lower() != "true":
+            if row[6].lower() == '4' or row[6].lower() == '5':
                 CardSkillsID.append(rowData.index(row))
         return CardSkillsID
 
@@ -16,7 +16,7 @@ class Cards:
         rowData = reader.readCsv('GameAssets/csv_logic/cards.csv')
         for row in rowData:
             if rowData.index(row) == id:
-                return row[5].lower()
+                return row[6].lower()
 
 
     def get_brawler_unlock(self):
@@ -24,7 +24,7 @@ class Cards:
         reader = CsvReader()
         rowData = reader.readCsv('GameAssets/csv_logic/cards.csv')
         for row in rowData:
-            if row[5].lower() == '0':
+            if row[6].lower() == '0':
                 CardUnlockID.append(rowData.index(row))
         return CardUnlockID
 
@@ -38,7 +38,7 @@ class Cards:
                 name = row[0]
                 for row in cardsData:
                     if type == 4:
-                        if row[5].lower() == '4' and row[3] == name:
+                        if row[6].lower() == '4' and row[3] == name:
                             return cardsData.index(row)
                     elif type == 5:
                         if row[3] == name and row[6].lower() == '5':
@@ -54,5 +54,5 @@ class Cards:
             if charsData.index(row) == brawler_id:
                 name = row[0]
                 for row in cardsData:
-                    if row[7] == '0' and row[4].lower() != "true" and row[5].lower() != "true":
+                    if row[6].lower() == '0' and row[3] == name:
                         return cardsData.index(row)
