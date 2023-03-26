@@ -36,9 +36,9 @@
 
    "Offers": [
       {
-         "OfferID": 0,
+         "OfferID": 4,
          "DataReference": [16,0],
-         "ItemID": 233,
+         "ItemID": 52,
          "Currency": 0,
          "isDaily": false,
          "OldCost": 0,
