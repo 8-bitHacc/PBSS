@@ -1,9 +1,9 @@
 # PBSS
 
-Simple Brawl Stars v39.99.1 server emulator written in Python.
+Simple Brawl Stars v29 server emulator written in Python.
 - Based on [Classic Brawl](https://github.com/PhoenixFire6934/Classic-Brawl)
 
-![ScreenShot](https://cdn.discordapp.com/attachments/1032667790903095306/1088549453163675738/image.png) 
+![ScreenShot](https://media.discordapp.net/attachments/773634174645043242/1089590345379090493/image.png?width=1440&height=604) 
 
 ### Requirements:
 - Python 3.7 or higher
@@ -14,7 +14,7 @@ In a terminal, type __`pip install -r requirements.txt`__ then __`python main.py
 
 ### Configuring the client app
 To connect to your server, a **patched client** is required. 
-Download this [base APK](https://www.mediafire.com/file/4lqxq2phdswikv1/com.projectbsds.v3999-rev1.apk/file) and change the IP in `libfridacat.config.so`
+Download this [base APK](https://drive.google.com/file/d/1tB9dGzL_nG91yvljDtGhArAQhbc2rFsQ/view?usp=sharing ) and change the IP in `liblwitchy.config.so`
 
 
 ### Need help?
@@ -22,6 +22,5 @@ Download this [base APK](https://www.mediafire.com/file/4lqxq2phdswikv1/com.proj
 - Joke issues aren't allowed. They will be closed.
 
 ### Special thanks
-- [athemm](https://github.com/athemm) - for making the patcher.
 - [HaccerCat](https://github.com/HaccerCat/) - for the original fork with SQLite3 DataBase.
-- [BSDS and Crazor](https://discord.gg/mt4dUxXryh) - Client.
+- [Lwitchy](https://github.com/Lwitchy/) - Client.

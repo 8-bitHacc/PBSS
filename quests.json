@@ -1,0 +1,16 @@
+{
+    "Missions":[
+        {
+            "MissionType": 1,
+            "GoalAchieved": 0,
+            "MissionGoal": 8,
+            "Reward": 0,
+            "CurrentLevel": 0,
+            "MaxLevel": 0,
+            "QuestType": 0,
+            "MissionState": 2,
+            "DataRef": [16, 0],
+            "Gamemode": 0          
+        }
+    ]
+}

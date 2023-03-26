@@ -7,13 +7,12 @@ class LogicClientHome:
         LogicDailyData.encode(self)
         LogicConfData.encode(self)
 
-        self.writeLong(self.player.ID)  # PlayerID
+        self.writeLong(self.player.ID)
 
-        self.writeVInt(0) # Notification Factory
+        self.writeVInt(0)  # Unknown Array
         for x in range(0):
             pass
 
-        self.writeVInt(-64)  # VideoAdStarted
-        self.writeBoolean(False)
-        self.writeVInt(0)  # GatchaDrop
-        self.writeVInt(0)  # FriendlyStarPower
+        self.writeVInt(0)  # Unknown
+
+        self.writeUInt8(0) # Unknown

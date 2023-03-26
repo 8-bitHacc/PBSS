@@ -18,11 +18,15 @@ class LogicShopData:
     offers = shop_resources['Offers']
 
     def encodeShopPacks(self):
-        # Brawler Upgrade Cost
-        self.writeIntList([8, 40, 80, 145, 295, 485, 805, 1255])
+        # Unknown
+        self.writeArrayVint([20, 35, 75, 140, 290, 480, 800, 1250])
+        self.writeArrayVint([1, 2, 3, 4, 5, 10, 15, 20])
+        # Tickets
+        self.writeArrayVint([10, 30, 80])
+        self.writeArrayVint([6, 20, 60])
         # Gold
-        self.writeIntList(LogicShopData.gold_cost)
-        self.writeIntList(LogicShopData.gold_amount)
+        self.writeArrayVint(LogicShopData.gold_cost)
+        self.writeArrayVint(LogicShopData.gold_amount)
 
     def encodeShopResources(self):
         time_stamp = int(datetime.timestamp(datetime.now()))
@@ -35,35 +39,41 @@ class LogicShopData:
     def encodeShopOffers(self):
         self.writeVInt(len(LogicShopData.offers))
         for x in LogicShopData.offers:
-            self.writeVInt(1) # Count
+            self.writeVInt(1) # Items Count
             for y in range(1):
-                self.writeVInt(x['OfferID']) # ID
-                self.writeVInt(x['Multiplier']) # Count
-                self.writeDataReference(x['DataReference'][0],x['DataReference'][1])
-                self.writeVInt(x['ItemID']) # ItemID (Like Skins)
+                self.writeVInt(x['OfferID'])
+                self.writeVInt(x['Multiplier'])
+                self.writeDataReference(x['DataReference'][0], x['DataReference'][1])
+                self.writeVInt(x['ItemID'])
 
-            self.writeVInt(x['Currency']) # Currency (0-Gems, 1-Gold, 3-StarPoints)
-            self.writeVInt(x['Cost']) # Cost
-            self.writeVInt(x['Timer']) # Time
-            self.writeVInt(x['State']) # State (0-New with Animations, 1-New, 2-Nothing)
+            self.writeVInt(x['Currency'])
+
+            self.writeVInt(x['Cost'])
+            self.writeVInt(x['Timer'])
+            self.writeVInt(x['State'])
+
+            self.writeVInt(0) # Unknown
+            self.writeBool(x['Claimed'])
+
+            self.writeUInt8(0) # Index
+
+            self.writeBool(x['isDaily'])
+            self.writeUInt8(x['OldCost'])
 
             self.writeVInt(0)
-            self.writeBoolean(x['Claimed']) # Offer Claimed
-            self.writeVInt(0) # Offer Index
-            self.writeVInt(0)
-            self.writeBoolean(x['isDaily']) # isDaily?
-            self.writeVInt(x['OldCost']) # OldPrice
+
             self.writeInt(0)
-            self.writeString(x['OfferText']) # Offer Text
+            self.writeStringReference(x['OfferText'])
 
-            self.writeBoolean(False)
-            self.writeString(x['OfferBG']) # Offer Background
+            self.writeUInt8(0)
+            self.writeString(x['OfferBG'])
             self.writeVInt(0)
-            self.writeBoolean(x['isProcessed']) # isProcessed
-            self.writeVInt(x['ExtraType']) # ExtraType
-            self.writeVInt(x['Extra'])# Extra
-            self.writeString()
-            self.writeBoolean(x['isOneTimePurchase'])# isOneTimePurchase
+            self.writeBool(x['isProcessed'])
+            self.writeVInt(x['ExtraType'])
+            self.writeVInt(x['Extra'])
+
+
+
 
     def encodeBoxes(self):
         self.writeVInt(100) # Tokens for 1 Brawl Box

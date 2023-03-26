@@ -36,22 +36,21 @@
 
    "Offers": [
       {
-         "OfferID": 4,
+         "OfferID": 0,
          "DataReference": [16,0],
-         "ItemID": 29,
+         "ItemID": 233,
          "Currency": 0,
          "isDaily": false,
          "OldCost": 0,
-         "Cost": 0,
-         "Timer": 1,
-         "State": 0,
-         "Multiplier": 1,
-         "OfferText": "SPECIAL OFFER",
-         "OfferBG": "offer_blackfriday",
+         "OfferBG": "offer_lny",
          "isProcessed": false,
-         "ExtraType": 0,
-         "Extra": 0,
-         "isOneTimePurchase": false,
+         "ExtraType": 2,
+         "Extra": 10,
+         "Cost": 15,
+         "Timer": 3600,
+         "Multiplier": 10,
+         "OfferText": "SPECIAL OFFER",
+         "State": 0,
          "Claimed": false
       }
 

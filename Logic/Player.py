@@ -4,6 +4,7 @@ from Utils.Fingerprint import Fingerprint
 from Files.CsvLogic.Characters import Characters
 from Files.CsvLogic.Skins import Skins
 from Files.CsvLogic.Cards import Cards
+from Files.CsvLogic.Emotes import Emotes
 
 class Player:
     try:
@@ -18,17 +19,18 @@ class Player:
 
     skins_id = Skins().get_skins_id()
     brawlers_id = Characters().get_brawlers_id()
+    emotes_id = Emotes().get_emotes_id()
 
     ID = 0
     token = None
 
-    trophies = 0
-    tickets = 0
-    gems = 0
+    trophies = settings['Trophies']
+    tickets = settings['Tickets']
+    gems = settings['Gems']
     resources = [{'ID': 1, 'Amount': settings['BrawlBoxTokens']}, {'ID': 8, 'Amount': settings['Gold']}, {'ID': 9, 'Amount': settings['BigBoxTokens']}, {'ID': 10, 'Amount': settings['StarPoints']}]
     high_trophies = 0
-    trophy_reward = 300
-    exp_points = settings['ExperiencePoints']
+    trophy_reward = 1
+    exp_points = 0
     profile_icon = 0
     name_color = 0
     selected_brawler = 0
@@ -56,6 +58,7 @@ class Player:
     patch_sha = Fingerprint.loadFinger("GameAssets/fingerprint.json")
     update_url = settings['UpdateURL']
     TrophiesAnimation = 0
+    tutorial = 0
 
     delivery_items = {}
     box_rewards = {}
@@ -65,12 +68,19 @@ class Player:
     battle_tick = 0
 
     unlocked_skins = [0]
+    unlocked_spgs = [0]
 
     selected_skins = {}
     for id in brawlers_id:
         selected_skins.update({f"{id}": 0})
 
-    brawlers_unlocked = [0, 1]
+    brawlers_unlocked = [0]
+
+    pins_unlocked = []
+
+    selected_pins = {}
+    for id in brawlers_id:
+        selected_pins.update({f"{id}": 0})
 
     brawlers_card_id = []
     for x in brawlers_unlocked:
@@ -110,6 +120,9 @@ class Player:
     game_major = 0
     game_minor = 0
     game_build = 0
+
+    # Team Data
+    isReady = 0
 
     clients = {}
 

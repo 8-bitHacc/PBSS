@@ -1,23 +1,25 @@
 from Files.CsvLogic.Cards import Cards
-from Protocol.Messages.Client.SetNameMessage import SetNameMessage
 
 class LogicClientAvatar:
 
     def encode(self):
+
+        self.writeVInt(0)
+        self.writeVInt(0)
 
         for x in range(3):
             self.writeLogicLong(self.player.ID)
 
         if self.player.name == "Guest" and not self.player.name_set:
             self.writeString("Guest")
-            self.writeBoolean(False)
+            self.writeVInt(0)
         else:
             self.writeString(self.player.name)
-            self.writeBoolean(True)
+            self.writeVInt(1)
 
-        self.writeString()
+        self.writeInt(0)
 
-        self.writeVInt(15) # Commodity Array
+        self.writeVInt(8) # Commodity Array
 
         self.player.brawlers_card_id = []
         for x in self.player.brawlers_unlocked:
@@ -68,27 +70,6 @@ class LogicClientAvatar:
         for x in range(0):
             self.writeDataReference(16, x)
             self.writeVInt(0)
-        
-        # Array
-        self.writeVInt(0)
-
-        # Array
-        self.writeVInt(0)
-
-        # Array
-        self.writeVInt(0)
-
-        # Array
-        self.writeVInt(0)
-
-        # Array
-        self.writeVInt(0)
-
-        # Array
-        self.writeVInt(0)
-
-        # Array
-        self.writeVInt(0)
 
         self.writeVInt(self.player.gems)  # Player Gems
         self.writeVInt(self.player.gems)  # Player Free Gems
@@ -103,4 +84,4 @@ class LogicClientAvatar:
         self.writeVInt(0)
         self.writeVInt(0)
 
-        self.writeVInt(2) # Tutorial State
+        self.writeVInt(self.player.tutorial) # Tutorial State
