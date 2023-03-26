@@ -82,6 +82,7 @@ class Helpers:
         self.player.welcome_msg_viewed = player_data['WelcomeMessageViewed']
         self.player.club_id = player_data['ClubID']
         self.player.club_role = player_data['ClubRole']
+        self.player.tutorial = player_data['Tutorial']
 
 
     def load_club(self, club_data):
