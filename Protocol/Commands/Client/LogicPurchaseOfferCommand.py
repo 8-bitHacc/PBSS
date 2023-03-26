@@ -30,7 +30,7 @@ class LogicPurchaseOfferCommand(Reader):
 
 
             self.player.delivery_items = {
-                'Count': 2,
+                'Count': 1,
                 'Type': 0,
                 'Items': []
             }
