@@ -7,7 +7,6 @@ from Protocol.Commands.Client.LogicPurchaseBrawlPassCommand import LogicPurchase
 from Protocol.Commands.Client.LogicPurchaseOfferCommand import LogicPurchaseOfferCommand
 from Protocol.Commands.Client.LogicGatchaCommand import LogicGatchaCommand
 from Protocol.Commands.Client.LogicLevelUpCommand import LogicLevelUpCommand
-from Protocol.Commands.Client.LogicSelectEmoteCommand import LogicSelectEmoteCommand
 
 commands = {
 	500: LogicGatchaCommand,
@@ -18,7 +17,6 @@ commands = {
 	520: LogicLevelUpCommand,
 	521: LogicPurchaseHeroLvlUpMaterialCommand,
 	527: LogicSetPlayerNameColorCommand,
-	534: LogicPurchaseBrawlPassCommand,
-    538: LogicSelectEmoteCommand
+	534: LogicPurchaseBrawlPassCommand
 
 }

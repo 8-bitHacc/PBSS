@@ -1,7 +1,6 @@
 from ByteStream.Reader import Reader
 from Logic.Home.LogicShopData import LogicShopData
 from Protocol.Messages.Server.AvailableServerCommandMessage import AvailableServerCommandMessage
-from Protocol.Messages.Server.LoginFailedMessage import LoginFailedMessage
 
 class LogicPurchaseOfferCommand(Reader):
     def __init__(self, client, player, initial_bytes):
@@ -30,13 +29,13 @@ class LogicPurchaseOfferCommand(Reader):
 
 
             self.player.delivery_items = {
-                'Count': 2,
+                'Count': 1,
                 'Type': 0,
                 'Items': []
             }
 
             if offer_id == 1:
-                item = {'Amount': offer_amount, 'DataRef': [0, 0], 'Value':7, 'SkinID': [0,0], 'PinID': [0,0], 'SPGID': [0,0] }
+                item = {'Amount': offer_amount, 'DataRef': [0, 0], 'Value':7 }
                 self.player.delivery_items['Type'] = 100
                 self.player.delivery_items['Items'].append(item)
 
@@ -46,26 +45,16 @@ class LogicPurchaseOfferCommand(Reader):
 
 
             elif offer_id == 16:
-                item = {'Amount': offer_amount, 'DataRef': [0, 0], 'Value':8, 'SkinID': [0,0], 'PinID': [0,0], 'SPGID': [0,0] }
+                item = {'Amount': offer_amount, 'DataRef': [0, 0], 'Value':8, 'SkinID': [0, 0], 'PinID': [0,0], 'SPGID': [0,0] }
                 self.player.delivery_items['Type'] = 100
                 self.player.delivery_items['Items'].append(item)
 
                 self.player.gems = self.player.gems + offer_amount
                 db.update_player_account(self.player.token, 'Gems', self.player.gems)
                 LogicShopData.offers[self.offer_index]['Claimed'] = True
-                
-            elif offer_id == 19:
-                item = {'Amount': offer_amount, 'DataRef': [16, offer_char], 'Value':11, 'SkinID': [0,0], 'PinID': [52, offer_itemID], 'SPGID': [0,0] }
-                self.player.delivery_items['Type'] = 100
-                self.player.delivery_items['Items'].append(item)
-
-                if offer_itemID not in self.player.pins_unlocked:
-                    self.player.pins_unlocked.append(offer_itemID)
-                    db.update_player_account(self.player.token, 'UnlockedPins', self.player.pins_unlocked)
-                LogicShopData.offers[self.offer_index]['Claimed'] = True
 
             elif offer_id == 9:
-                item = {'Amount': offer_amount, 'DataRef': [0, 0], 'Value':2 }
+                item = {'Amount': offer_amount, 'DataRef': [0, 0], 'Value':2, 'SkinID': [0, 0], 'PinID': [0,0], 'SPGID': [0,0] }
                 self.player.delivery_items['Type'] = 100
                 self.player.delivery_items['Items'].append(item)
 
@@ -74,7 +63,7 @@ class LogicPurchaseOfferCommand(Reader):
                 LogicShopData.offers[self.offer_index]['Claimed'] = True
 
             elif offer_id == 3:
-                item = {'Amount': offer_amount, 'DataRef': [16, offer_char ], 'Value':1, 'SkinID': [0,0], 'PinID': [0,0], 'SPGID': [0,0] }
+                item = {'Amount': offer_amount, 'DataRef': [16, offer_char ], 'Value':1, 'SkinID': [0, 0], 'PinID': [0,0], 'SPGID': [0,0] }
                 self.player.delivery_items['Type'] = 100
                 self.player.delivery_items['Items'].append(item)
                 if offer_char not in self.player.brawlers_unlocked:
@@ -83,7 +72,7 @@ class LogicPurchaseOfferCommand(Reader):
                 LogicShopData.offers[self.offer_index]['Claimed'] = True
 
             elif offer_id == 12:
-                item = {'Amount': offer_amount, 'DataRef': [16, self.brawler ], 'Value':6, 'SkinID': [0,0], 'PinID': [0,0], 'SPGID': [0,0] }
+                item = {'Amount': offer_amount, 'DataRef': [16, self.brawler ], 'Value':6, 'SkinID': [0, 0], 'PinID': [0,0], 'SPGID': [0,0] }
                 self.player.delivery_items['Type'] = 100
                 self.player.delivery_items['Items'].append(item)
 
@@ -93,7 +82,7 @@ class LogicPurchaseOfferCommand(Reader):
 
 
             elif offer_id == 8:
-                item = {'Amount': offer_amount, 'DataRef': [16, offer_char ], 'Value':6, 'SkinID': [0,0], 'PinID': [0,0], 'SPGID': [0,0] }
+                item = {'Amount': offer_amount, 'DataRef': [16, offer_char ], 'Value':6, 'SkinID': [0, 0], 'PinID': [0,0], 'SPGID': [0,0] }
                 self.player.delivery_items['Type'] = 100
                 self.player.delivery_items['Items'].append(item)
 
@@ -103,9 +92,9 @@ class LogicPurchaseOfferCommand(Reader):
             
             elif offer_id == 4:
                 item = {'Amount': offer_amount, 'DataRef': [0,0], 'Value': 9, 'SkinID': [29, offer_itemID], 'PinID': [0,0], 'SPGID': [0,0]}
+
                 self.player.delivery_items['Type'] = 100
                 self.player.delivery_items['Items'].append(item)
-
                 if offer_itemID not in self.player.unlocked_skins:
                     self.player.unlocked_skins.append(offer_itemID)
                     db.update_player_account(self.player.token, 'UnlockedSkins', self.player.unlocked_skins)
@@ -129,8 +118,7 @@ class LogicPurchaseOfferCommand(Reader):
                 LogicShopData.offers[self.offer_index]['Claimed'] = True
 
             else:
-                self.player.err_code = 1
-                LoginFailedMessage(self.client, self.player, f'Unsupported Offer ID\nID: {offer_id}').send()
+                print(f"Unsupported offer ID: {offer_id}")
 
 
             if offer_resource == 0:

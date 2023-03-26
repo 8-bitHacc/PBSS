@@ -31,8 +31,8 @@ class LogicGiveDeliveryItemsCommand(Writer):
 
         self.writeBool(True) # ForcedDrops
 
-        self.writeVInt(1)
-        self.writeVInt(1)
+        self.writeVInt(0)
+        self.writeVInt(0)
         self.writeVInt(0)
         self.writeVInt(0)
         self.writeVInt(0)

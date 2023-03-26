@@ -24,8 +24,9 @@ class AllianceDataMessage(Writer):
             self.writeString(Regions().get_region_string(self.club_data['Region']))
             self.writeVInt(0)
             self.writeVInt(self.club_data['FamilyFriendly'])
+            self.writeVInt(0) # Unknown
 
-            self.writeString(self.club_data['Description'])
+            self.writeString()
 
             self.writeVInt(len(self.club_data['Members']))
 
@@ -36,15 +37,13 @@ class AllianceDataMessage(Writer):
                 self.writeVInt(2) # Player Status
                 self.writeVInt(0)
                 self.writeVInt(0)
+                self.writeVInt(0) # Do not disturb?
 
                 self.writeString(member['Name'])
                 self.writeVInt(100)
                 self.writeVInt(28000000 + member['ProfileIcon'])
                 self.writeVInt(43000000 + member['NameColor'])
-                if self.player.bp_activated:
-                    self.writeVInt(43000000 + member['NameColor'])
-                else:
-                    self.writeNullVInt()
+                self.writeVInt(46000000) # Color Gradient
 
         else:
             self.writeVInt(2)

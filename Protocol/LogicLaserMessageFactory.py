@@ -22,12 +22,9 @@ from Protocol.Messages.Client.AskForJoinableAlliancesListMessage import AskForJo
 from Protocol.Messages.Client.LeaveAllianceMessage import LeaveAllianceMessage
 from Protocol.Messages.Client.SearchAlliancesMessage import SearchAlliancesMessage
 from Protocol.Messages.Client.ChatToAllianceStreamMessage import ChatToAllianceStreamMessage
-from Protocol.Messages.Client.TeamSetMemberReadyMessage import TeamSetMemberReadyMessage
-from Protocol.Messages.Client.AnalyticEventMessage import AnalyticEventMessage
 
 packets = {
     10101: LoginMessage,
-    10110: AnalyticEventMessage,
     14103: StartGameMessage,
     10108: KeepAliveMessage,
     10212: SetNameMessage,
@@ -43,14 +40,13 @@ packets = {
     14315: ChatToAllianceStreamMessage,
     14316: ChangeAllianceSettingsMessage,
     14324: SearchAlliancesMessage,
-    14350: TeamCreateMessage,
+    #14350: TeamCreateMessage,
     14353: TeamLeaveMessage,
     14354: TeamChangeMemberSettingsMessage,
     14363: TeamSetLocationMessage,
     14372: TeamToggleSettingsMessage,
-    14403: GetLeaderboardMessage,
+    #14403: GetLeaderboardMessage,
     14600: AvatarNameCheckRequestMessage,
     18686: SetSupportedCreatorMessage,
-    14355: TeamSetMemberReadyMessage
 
 }

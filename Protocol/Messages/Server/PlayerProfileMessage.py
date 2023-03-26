@@ -38,10 +38,7 @@ class PlayerProfileMessage(Writer):
         self.writeVInt(100) # Unknown
         self.writeVInt(28000000 + self.player_data['ProfileIcon'])
         self.writeVInt(43000000 + self.player_data['NameColor'])
-        if self.player.bp_activated:
-            self.writeVInt(43000000 + self.player_data['NameColor'])
-        else:
-            self.writeNullVInt()
+        self.writeVInt(-64)
 
         if self.player_data['ClubID'] != 0:
             club_data = self.db.load_club(self.player_data['ClubID'])

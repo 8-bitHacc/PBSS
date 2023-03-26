@@ -13,7 +13,6 @@ class TeamChangeMemberSettingsMessage(Reader):
 
     def decode(self):
         self.data_ref = self.readDataReference()
-        self.room_type = 0
         if self.data_ref[0] == 0:
             self.data_ref = self.readDataReference()
 
@@ -36,4 +35,4 @@ class TeamChangeMemberSettingsMessage(Reader):
             db.update_player_account(self.player.token, 'Gadget', self.player.gadget)
 
 
-        TeamMessage(self.client, self.player, self.room_type).send()
+        TeamMessage(self.client, self.player).send()

@@ -28,3 +28,4 @@ class AllianceListMessage(Writer):
             self.writeString(Regions().get_region_string(club['Region']))
             self.writeVInt(0)
             self.writeVInt(club['FamilyFriendly'])
+            self.writeVInt(0)
