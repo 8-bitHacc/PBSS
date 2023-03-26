@@ -18,7 +18,7 @@ class DB:
             'Tickets': Player.tickets,
             'Resources': Player.resources,
             'TokenDoubler': 0,
-            'HighestTrophies': Player.high_trophies,
+            'HighestTrophies': 0,
             'HomeBrawler': 0,
             'TrophyRoadReward': 300,
             'ExperiencePoints': Player.exp_points,
@@ -30,7 +30,9 @@ class DB:
             'BrawlersLevel': Player.brawlers_level,
             'BrawlersPowerPoints': Player.brawlers_powerpoints,
             'UnlockedSkins': Player.unlocked_skins,
+            'UnlockedPins': Player.pins_unlocked,
             'SelectedSkins': Player.selected_skins,
+            'SelectedPins': Player.selected_pins,
             'SelectedBrawler': 0,
             'Region': Player.region,
             'SupportedContentCreator': "Modern Brawl",
@@ -40,7 +42,8 @@ class DB:
             'WelcomeMessageViewed': False,
             'ClubID': 0,
             'ClubRole': 1,
-            'TimeStamp': str(datetime.datetime.now()),
+            'Tutorial': Player.tutorial,
+            'TimeStamp': str(datetime.datetime.now())
         }
 
         self.club_data = {
