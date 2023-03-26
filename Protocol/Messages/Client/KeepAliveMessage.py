@@ -1,7 +1,5 @@
 from ByteStream.Reader import Reader
 from Protocol.Messages.Server.KeepAliveOkMessage import KeepAliveOkMessage
-from Protocol.Messages.Server.LobbyInfoMessage import LobbyInfoMessage
-from Utils.Helpers import Helpers
 
 class KeepAliveMessage(Reader):
     def __init__(self, client, player, initial_bytes):
@@ -14,4 +12,3 @@ class KeepAliveMessage(Reader):
 
     def process(self, db):
         KeepAliveOkMessage(self.client, self.player).send()
-        LobbyInfoMessage(self.client, self.player, Helpers.connected_clients['ClientsCount']).send()

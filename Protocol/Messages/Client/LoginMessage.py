@@ -18,14 +18,18 @@ class LoginMessage(Reader):
 
         self.account_id    = self.readLong()
         self.account_token = self.readString()
-        self.player.game_major    = self.readInt()
-        self.player.game_minor    = self.readInt()
-        self.player.game_build    = self.readInt()
+        self.game_major    = self.readInt()
+        self.game_minor    = self.readInt()
+        self.game_build    = self.readInt()
 
         self.fingerprint_sha = self.readString()
 
 
     def process(self, db):
+
+        if self.game_major != 29:
+            self.player.err_code = 8
+            LoginFailedMessage(self.client, self.player, 'Unsupported client version').send()
 
         if self.player.maintenance:
             self.player.err_code = 10

@@ -7,9 +7,10 @@ class LogicPurchaseBrawlPassCommand(Reader):
         self.client = client
 
     def decode(self):
-        self.readVInt()
-        self.readVInt()
-        self.readLogicLong()
+        print(f'First VInt: {self.readVInt()}')
+        self.PurchaseType = self.readVInt()
+        print(self.PurchaseType)
+        print(f'LogicLong: {self.readLogicLong()}')
 
     def process(self, db):
         self.player.bp_activated = True

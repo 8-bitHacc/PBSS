@@ -18,7 +18,6 @@ class OwnHomeDataMessage(Writer):
         	player_data = DataManager.load_player_account(self.player.ID, self.player.token)
         	Helpers.load_account(self, player_data)
         DataManager.close()
-        self.writeVInt(self.time_stamp)
-        self.writeVInt(self.time_stamp)
         LogicClientHome.encode(self)
         LogicClientAvatar.encode(self)
+        self.writeVInt(self.time_stamp)
