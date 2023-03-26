@@ -30,11 +30,11 @@ class LeaderboardMessage(Writer):
 
                 self.writeVInt(9)
                 self.writeVInt(28000000 + entry['ProfileIcon'])
+                self.writeVInt(43000000 + entry['NameColor'])
                 if self.player.bp_activated:
                     self.writeVInt(43000000 + entry['NameColor'])
                 else:
                     self.writeNullVInt()
-                self.writeVInt(0)
 
             self.writeVInt(0)
 

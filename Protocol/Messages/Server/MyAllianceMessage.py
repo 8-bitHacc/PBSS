@@ -19,16 +19,13 @@ class MyAllianceMessage(Writer):
             self.writeString(self.club_data['Name'])
             self.writeDataReference(8, self.club_data['BadgeID'])
             self.writeVInt(self.club_data['Type'])
-            self.writeVInt(len(self.club_data['Members'])) # Total Members
+            self.writeVInt(len(self.club_data['Members']))
             self.writeVInt(self.club_data['Trophies'])
             self.writeVInt(self.club_data['RequiredTrophies'])
             self.writeDataReference(0, 0)
             self.writeString(Regions().get_region_string(self.club_data['Region']))
             self.writeVInt(0)
             self.writeVInt(self.club_data['FamilyFriendly'])
-            self.writeVInt(0) # Unknown
-
-            self.writeBool(False)
 
         else:
             self.writeVInt(0)
