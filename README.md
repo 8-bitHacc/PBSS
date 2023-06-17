@@ -18,7 +18,7 @@ Download this [base APK](https://drive.google.com/file/d/1tB9dGzL_nG91yvljDtGhAr
 
 
 ### Need help?
-- Open an issue or contact me on **Discord**: 8-bit Hacc#1032
+- Open an issue or contact me on **Discord**: 8hacc
 - Joke issues aren't allowed. They will be closed.
 
 ### Special thanks
