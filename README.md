@@ -23,5 +23,5 @@ Download this [base APK](https://www.mediafire.com/file/4lqxq2phdswikv1/com.proj
 
 ### Special thanks
 - [athemm](https://github.com/athemm) - for making the patcher.
-- [HaccerCat](https://github.com/HaccerCat/) - for the original fork with SQLite3 DataBase.
-- [BSDS and Crazor](https://discord.gg/mt4dUxXryh) - Client.
+- [HaccerCat](https://github.com/HaccerCat/) - for the original fork of Classic Brawl with SQLite3 DataBase.
+- [Crazor](https://github.com/CrazorTheCat) - Client.
