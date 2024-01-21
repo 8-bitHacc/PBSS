@@ -14,7 +14,7 @@ In a terminal, type __`pip install -r requirements.txt`__ then __`python main.py
 
 ### Configuring the client app
 To connect to your server, a **patched client** is required. 
-Download this [base APK](https://drive.google.com/file/d/1tB9dGzL_nG91yvljDtGhArAQhbc2rFsQ/view?usp=sharing ) and change the IP in `liblwitchy.config.so`
+You can find one or create your own.
 
 
 ### Need help?
