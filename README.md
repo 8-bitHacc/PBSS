@@ -3,7 +3,7 @@
 Simple Brawl Stars v39.99.1 server emulator written in Python.
 - Based on [Classic Brawl](https://github.com/PhoenixFire6934/Classic-Brawl)
 
-![ScreenShot](https://cdn.discordapp.com/attachments/1032667790903095306/1088549453163675738/image.png) 
+![ScreenShot]([https://cdn.discordapp.com/attachments/1032667790903095306/1088549453163675738/image.png](https://cdn.discordapp.com/attachments/1032667790903095306/1088549453163675738/image.png?ex=6605c92d&is=65f3542d&hm=c49817653f309bb1a7f859d2a11749288f2478d61832fdf59edcb8d2f80bec3c&)) 
 
 ### Requirements:
 - Python 3.7 or higher
