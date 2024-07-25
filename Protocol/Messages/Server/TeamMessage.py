@@ -19,6 +19,7 @@ class TeamMessage(Writer):
         self.writeVInt(0)
 
         self.writeDataReference(15, self.player.map_id)
+        self.writeUInt8(0)
 
         self.writeVInt(1)
         for x in range(1):
@@ -36,6 +37,10 @@ class TeamMessage(Writer):
 
             self.writeVInt(3)
             self.writeVInt(0)
+            self.writeUInt8(0)
+            self.writeVInt(0)
+            self.writeVInt(0)
+            self.writeVInt(0)
             self.writeVInt(0)
             self.writeVInt(0)
             self.writeVInt(0)
@@ -44,9 +49,11 @@ class TeamMessage(Writer):
             self.writeVInt(100)
             self.writeVInt(28000000 + self.player.profile_icon)
             self.writeVInt(43000000 + self.player.name_color)
+            self.writeNullVInt()
 
             self.writeDataReference(23, self.player.starpower) if self.player.starpower != None else self.writeVInt(0)
             self.writeDataReference(23, self.player.gadget)    if self.player.gadget != None else self.writeVInt(0)
+            self.writeVInt(0)
 
         self.writeVInt(0)
         for x in range(0):
@@ -55,9 +62,11 @@ class TeamMessage(Writer):
         self.writeVInt(0)
         for x in range(0):
             pass
+
+        self.writeIntList([])
 
         self.writeUInt8(0)
-        if self.player.use_gadget:
-            self.writeUInt8(6)
-        else:
-            self.writeUInt8(0)
+        self.writeUInt8(0)
+        self.writeUInt8(0)
+        self.writeUInt8(0)
+        self.writeIntList([])
