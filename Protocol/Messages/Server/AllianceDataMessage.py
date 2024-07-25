@@ -24,7 +24,6 @@ class AllianceDataMessage(Writer):
             self.writeString(Regions().get_region_string(self.club_data['Region']))
             self.writeVInt(0)
             self.writeVInt(self.club_data['FamilyFriendly'])
-            self.writeVInt(0) # Unknown
 
             self.writeString()
 
@@ -38,12 +37,16 @@ class AllianceDataMessage(Writer):
                 self.writeVInt(0)
                 self.writeVInt(0)
                 self.writeVInt(0) # Do not disturb?
+                self.writeVInt(0)
+                self.writeVInt(0)
 
                 self.writeString(member['Name'])
                 self.writeVInt(100)
                 self.writeVInt(28000000 + member['ProfileIcon'])
                 self.writeVInt(43000000 + member['NameColor'])
                 self.writeVInt(46000000) # Color Gradient
+                self.writeVInt(0)
+                self.writeVInt(0)
 
         else:
             self.writeVInt(2)
