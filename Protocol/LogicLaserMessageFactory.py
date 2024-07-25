@@ -40,7 +40,7 @@ packets = {
     14315: ChatToAllianceStreamMessage,
     14316: ChangeAllianceSettingsMessage,
     14324: SearchAlliancesMessage,
-    #14350: TeamCreateMessage,
+    14350: TeamCreateMessage,
     14353: TeamLeaveMessage,
     14354: TeamChangeMemberSettingsMessage,
     14363: TeamSetLocationMessage,
